@@ -4,6 +4,7 @@
 This guide shows how to dynamically patch the `AmsiScanBuffer` function in PowerShell to bypass AMSI, enabling the execution of scripts without being detected. This technique is useful for penetration testing, security research, and other ethical hacking practices.  
 
 > **Disclaimer:** Always use these techniques in controlled, legal environments. Misuse may lead to legal and ethical consequences.
+![image](https://github.com/user-attachments/assets/17d63b89-01ae-428a-aa13-812deed92961)
 
 ---
 
